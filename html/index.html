@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/configStyles/normalize.css">
+    <link rel="stylesheet" href="../css/configStyles/resetStyle.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>Thirteen dice</title>
+</head>
+
+<body>
+    <div class="app-main">
+        <div class="scores">
+            <div class="player">
+                <div class="score">Score: 0</div>
+
+                <div class="winPoints">Win points: 0</div>
+            </div>
+
+            <div class="bot">
+                <div class="score">Score: 0</div>
+
+                <div class="winPoints">Win points: 0</div>
+            </div>
+        </div>
+
+        <div class="dices">
+            <div class="diceModel">
+                <div class="firstDice dice">
+                    <div id="dice" data-side="1">
+                        <div class="sides side-1">
+                            <span class="dot dot-1"></span>
+                        </div>
+                        <div class="sides side-2">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                        </div>
+                        <div class="sides side-3">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                        </div>
+                        <div class="sides side-4">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                            <span class="dot dot-4"></span>
+                        </div>
+                        <div class="sides side-5">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                            <span class="dot dot-4"></span>
+                            <span class="dot dot-5"></span>
+                        </div>
+                        <div class="sides side-6">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                            <span class="dot dot-4"></span>
+                            <span class="dot dot-5"></span>
+                            <span class="dot dot-6"></span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="secondDice dice">
+                    <div id="dice" data-side="1">
+                        <div class="sides side-1">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                        </div>
+                        <div class="sides side-2">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                        </div>
+                        <div class="sides side-3">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                            <span class="dot dot-4"></span>
+                        </div>
+                        <div class="sides side-4">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                            <span class="dot dot-4"></span>
+                            <span class="dot dot-5"></span>
+                        </div>
+                        <div class="sides side-5">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                            <span class="dot dot-4"></span>
+                            <span class="dot dot-5"></span>
+                            <span class="dot dot-6"></span>
+                        </div>
+                        <div class="sides side-6">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                            <span class="dot dot-4"></span>
+                            <span class="dot dot-5"></span>
+                            <span class="dot dot-6"></span>
+                            <span class="dot dot-7"></span>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+           
+            <div class="diceButton">
+                <button class="rollTheDice">roll</button>
+            </div>
+        </div>
+
+        <div class="modals">
+            <div class="gameResult">
+                <p class="gameResult-title"></p>
+            </div>
+        </div>
+
+        <script src="../js/game/bot.js"></script>
+        <script src="../js/game/player.js"></script>
+        <script src="../js/game/tools/generator.js"></script>
+        <script src="../js/game/gameState.js"></script>
+        <script src="../js/index.js"></script>
+</body>
+</html>

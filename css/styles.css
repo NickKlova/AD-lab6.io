@@ -1,0 +1,278 @@
+/*Globals*/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.app-main{
+    display: grid;
+    grid-template: 1fr 3fr / 1fr;
+    min-height: 100%;
+}
+
+/*Result of game*/
+.gameResult{
+    display: none;
+    transition: 0.5s;
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    background-color: rgba(37, 93, 149, 0.4);
+    border: rgba(251, 0, 0, 0.1) solid 3px;
+    border-radius: 25px;
+}
+
+.gameResult-title{
+    text-align: center;
+    margin-top: 300px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/*Scores*/
+.scores{
+    grid-row: 1/2;
+    background: #D3E4CD;
+
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.player, .bot{
+    font-size: 60px;
+    border: black solid 2px;
+    padding: 10px;
+}
+
+.score{
+    padding-left: 60px;
+    padding-bottom: 30px;
+    color:darkcyan;
+}
+
+.winPoints{
+    color: darkgoldenrod;
+    font-weight: bold;
+}
+
+/*Dices*/
+.dices{
+    grid-row: 2/3;
+    background: #99A799;
+
+    display: grid;
+    grid-template: 6fr 1fr / 1fr;
+}
+
+.diceModel{
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.diceButton{
+    background: #FFF1AF;
+}
+
+.rollTheDice{
+    margin-top: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 50px;
+
+    color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #B4C6A6 0%, #66806A 51%, #FFC286 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+    border: white solid 1px;
+}
+
+.rollTheDice:disabled{
+    background: grey;
+    cursor:auto;
+}
+
+.rollTheDice:hover{
+    background-position: right center;
+}
+
+.rollTheDice:active{
+    background-image: linear-gradient(to right, #FFC286 0%, #B4C6A6 51%, #94B3FD 100%);
+}
+
+.rollTheDiceHide{
+    display: none;
+}
+
+/*Select*/
+.playerCoefficient{
+    margin-top: 25px;
+    grid-row: 2/3;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    height: 50px;  
+}
+
+/*Dice-Animation*/
+#dice {
+    width: 180px;
+    height: 180px;
+    transform-style: preserve-3d;
+    transition: transform 1.5s ease-out;
+	border-radius: 10px;
+}
+
+.sides{
+    background-color: #EFE5DC;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.25);
+	border-radius: 10px;
+}
+
+.dot {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
+}
+
+/*Dots on the firt dice*/
+.side-1 .dot-1 { top: 50%; left: 50%; }
+
+.side-2 .dot-1 { top: 25%; left: 25%; }
+.side-2 .dot-2 { top: 75%; left: 75%; }
+
+.side-3 .dot-1 { top: 25%; left: 25%; }
+.side-3 .dot-2 { top: 75%; left: 75%; }
+.side-3 .dot-3 { top: 50%; left: 50%; }
+
+.side-4 .dot-1 { top: 25%; left: 25%; }
+.side-4 .dot-2 { top: 25%; left: 75%; }
+.side-4 .dot-3 { top: 75%; left: 25%; }
+.side-4 .dot-4 { top: 75%; left: 75%; }
+
+.side-5 .dot-1 { top: 25%; left: 25%; }
+.side-5 .dot-2 { top: 25%; left: 75%; }
+.side-5 .dot-3 { top: 75%; left: 25%; }
+.side-5 .dot-4 { top: 75%; left: 75%; }
+.side-5 .dot-5 { top: 50%; left: 50%; }
+
+.side-6 .dot-1 { top: 25%; left: 25%; }
+.side-6 .dot-2 { top: 25%; left: 75%; }
+.side-6 .dot-3 { top: 75%; left: 25%; }
+.side-6 .dot-4 { top: 75%; left: 75%; }
+.side-6 .dot-5 { top: 50%; left: 25%; }
+.side-6 .dot-6 { top: 50%; left: 75%; }
+
+/*Dots on the second dice*/
+.secondDice > #dice > .side-1 .dot-1 { top: 25%; left: 25%; }
+.secondDice > #dice > .side-1 .dot-2 { top: 75%; left: 75%; }
+
+.secondDice > #dice > .side-2 .dot-1 { top: 25%; right: 25%; }
+.secondDice > #dice > .side-2 .dot-2 { top: 50%; left: 50%; }
+.secondDice > #dice > .side-2 .dot-3 { top: 75%; left: 75%; }
+
+.secondDice > #dice > .side-3 .dot-1 { top: 25%; right: 25%; }
+.secondDice > #dice > .side-3 .dot-2 { top: 25%; left: 75%; }
+.secondDice > #dice > .side-3 .dot-3 { top: 75%; left: 25%; }
+.secondDice > #dice > .side-3 .dot-4 { top: 75%; left: 75%; }
+
+.secondDice > #dice > .side-4 .dot-1 { top: 25%; right: 25%; }
+.secondDice > #dice > .side-4 .dot-2 { top: 25%; left: 75%; }
+.secondDice > #dice > .side-4 .dot-3 { top: 75%; left: 25%; }
+.secondDice > #dice > .side-4 .dot-4 { top: 75%; left: 75%; }
+.secondDice > #dice > .side-4 .dot-5 { top:  50%; left: 50%; }
+
+.secondDice > #dice > .side-5 .dot-1 { top: 25%; right: 25%; }
+.secondDice > #dice > .side-5 .dot-2 { top: 25%; left: 75%; }
+.secondDice > #dice > .side-5 .dot-3 { top: 75%; left: 25%; }
+.secondDice > #dice > .side-5 .dot-4 { top: 75%; left: 75%; }
+.secondDice > #dice > .side-5 .dot-5 { top:  50%; left: 25%; }
+.secondDice > #dice > .side-5 .dot-6 { top:  50%; left: 75%; }
+
+.secondDice > #dice > .side-6 .dot-1 { top: 25%; right: 25%; }
+.secondDice > #dice > .side-6 .dot-2 { top: 25%; left: 75%; }
+.secondDice > #dice > .side-6 .dot-3 { top: 75%; left: 25%; }
+.secondDice > #dice > .side-6 .dot-4 { top: 75%; left: 75%; }
+.secondDice > #dice > .side-6 .dot-5 { top:  50%; left: 25%; }
+.secondDice > #dice > .side-6 .dot-6 { top:  50%; left: 75%; }
+.secondDice > #dice > .side-6 .dot-7 { top:  50%; left: 50%; }
+
+/*Animation part*/
+#dice .side-1 {
+  transform: translateZ(90px);
+}
+#dice .side-2 {
+  transform: rotateX(-180deg) translateZ(90px);
+}
+#dice .side-3 {
+  transform: rotateY(90deg) translateZ(90px);
+}
+#dice .side-4 {
+  transform: rotateY(-90deg) translateZ(90px);
+}
+#dice .side-5 {
+  transform: rotateX(90deg) translateZ(90px);
+}
+#dice .side-6 {
+  transform: rotateX(-90deg) translateZ(90px);
+}
+
+#dice[data-side="1"] {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(720deg);
+}
+#dice[data-side="2"] {
+    transform: rotateX(360deg) rotateY(540deg) rotateZ(720deg);
+}
+#dice[data-side="3"] {
+    transform: rotateX(360deg) rotateY(630deg) rotateZ(720deg);
+}
+#dice[data-side="4"] {
+    transform: rotateX(360deg) rotateY(450deg) rotateZ(720deg);
+}
+#dice[data-side="5"] {
+    transform: rotateX(630deg) rotateY(360deg) rotateZ(720deg);
+}
+#dice[data-side="6"] {
+    transform: rotateX(450deg) rotateY(360deg) rotateZ(720deg);
+}
+
+#dice[data-side="1"].reRoll {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+#dice[data-side="2"].reRoll {
+    transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+}
+#dice[data-side="3"].reRoll {
+    transform: rotateX(0deg) rotateY(270deg) rotateZ(0deg);
+}
+#dice[data-side="4"].reRoll {
+    transform: rotateX(0deg) rotateY(90deg) rotateZ(0deg);
+}
+#dice[data-side="5"].reRoll {
+    transform: rotateX(270deg) rotateY(0deg) rotateZ(0deg);
+}
+#dice[data-side="6"].reRoll {
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+}
